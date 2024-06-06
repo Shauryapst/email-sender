@@ -5,7 +5,7 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 
-const transporter = nodemailer.createTransport({
+const data = {
     host: "smtp.office365.com",
     port: 587,
     secure: false, 
@@ -13,7 +13,12 @@ const transporter = nodemailer.createTransport({
         user: process.env.USER,
         pass: process.env.PASSWORD
     }
-});
+}
+console.log(data);
+
+const transporter = nodemailer.createTransport(data);
+
+
 
 
 app.post('/api/send-mail', (req, res) => {
@@ -23,7 +28,7 @@ app.post('/api/send-mail', (req, res) => {
     const magicLink = `https://your-app.com/magic-link?token=some-generated-token`;
 
     const mailOptions = {
-        from: 'your-email@outlook.com',
+        from: 'truiam@outlook.com',
         to: email,
         subject: 'Your Magic Link',
         text: `Click this link to proceed: ${magicLink}`
