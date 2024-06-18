@@ -38,13 +38,13 @@ app.post('/api/send-mail', (req, res) => {
         if (error) {
             return res.status(500).json({ error: error.toString() });
         }
-        res.status(200).json({ magicLinkSent: true });
+        res.status(200).json({ magicLinkSent: true, userWithEmailExists : "lol" });
     });
 });
 
 app.post('/api/check-user', async (req, res) => {
     try{
-        const { email, client_id } = req.body;
+        const { email, client_id, userWithEmailExists } = req.body;
         console.log(req.body);
 
         return res.status(200).json({
