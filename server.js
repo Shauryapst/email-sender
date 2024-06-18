@@ -38,7 +38,7 @@ app.post('/api/send-mail', (req, res) => {
         if (error) {
             return res.status(500).json({ error: error.toString() });
         }
-        res.status(200).json({ magicLinkSent: true, userWithEmailExists : "lol" });
+        res.status(409).json({ magicLinkSent: true, userWithEmailExists : "lol" });
     });
 });
 
