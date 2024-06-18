@@ -22,7 +22,6 @@ const transporter = nodemailer.createTransport(data);
 
 
 app.post('/api/send-mail', (req, res) => {
-    console.log(req);
     const { email } = req.body;
 
     const magicLink = `https://your-app.com/magic-link?token=some-generated-token`;
