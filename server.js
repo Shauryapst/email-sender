@@ -43,6 +43,22 @@ app.post('/api/send-mail', (req, res) => {
     });
 });
 
+app.post('/api/check-user', async (req, res) => {
+    try{
+        const { email, client_id } = req.body;
+        console.log(req.body);
+
+        return res.status(200).json({
+            email,
+            client_id,
+            userWithEmailExists : true
+        })
+    }
+    catch(err){
+
+    }
+});
+
 
 
 
