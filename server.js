@@ -58,7 +58,7 @@ app.post('/api/check-user', async (req, res) => {
              return res.status(200).json({
                 email,
                 client_id,
-                 account_enabled: true,
+                 isBlocked: true,
                 userWithEmailExists : true
             });
         }
